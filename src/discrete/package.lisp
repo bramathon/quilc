@@ -2,7 +2,7 @@
 ;;;;
 ;;;; Author: Robert Smith
 
-(defpackage #:cl-quil.discrete
+(defpackage #:cl-quil/discrete
   (:use #:cl)
   (:local-nicknames (:q :cl-quil))
   (:export

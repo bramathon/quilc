@@ -2,7 +2,7 @@
 ;;;;
 ;;;; Author: Robert Smith
 
-(fiasco:define-test-package #:cl-quil.discrete-tests
+(fiasco:define-test-package #:cl-quil/discrete-tests
   (:use #:cl)
   ;; suite.lisp
   (:export
