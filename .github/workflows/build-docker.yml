@@ -17,4 +17,4 @@ jobs:
         uses: docker/setup-buildx-action@v2
       - name: Build the image for X86 and ARM
         run: |
-          docker buildx build --tag rigetti/quilc:latest --platform linux/amd64,linux/arm64 .
+          docker buildx build --tag rigetti/quilc:latest --platform linux/arm64 .
