@@ -29,7 +29,7 @@ WORKDIR /usr/src
 # Quicklisp setup
 RUN wget -P /tmp/ 'https://beta.quicklisp.org/quicklisp.lisp'
 RUN sbcl --noinform --non-interactive --load /tmp/quicklisp.lisp \
-         --eval "(quicklisp-quickstart:install" 
+         --eval "(quicklisp-quickstart:install)" 
 RUN sbcl --noinform --non-interactive --load ~/quicklisp/setup.lisp \
           --eval '(ql-util:without-prompting (ql:add-to-init-file))' 
 RUN echo '#+quicklisp(push (truename "/usr/src") ql:*local-project-directories*)' >> ~/.sbclrc 
