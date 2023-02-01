@@ -27,13 +27,13 @@ RUN apt-get update \
 WORKDIR /usr/src
 
 # Quicklisp setup
-RUN wget -P /tmp/ 'https://beta.quicklisp.org/quicklisp.lisp' \
-    && sbcl --noinform --non-interactive --load /tmp/quicklisp.lisp \
-            --eval "(quicklisp-quickstart:install :dist-url \"${QUICKLISP_URL}\")" \
-    && sbcl --noinform --non-interactive --load ~/quicklisp/setup.lisp \
-            --eval '(ql-util:without-prompting (ql:add-to-init-file))' \
-    && echo '#+quicklisp(push (truename "/usr/src") ql:*local-project-directories*)' >> ~/.sbclrc \
-    && rm -f /tmp/quicklisp.lisp
+RUN wget -P /tmp/ 'https://beta.quicklisp.org/quicklisp.lisp'
+RUN sbcl --noinform --non-interactive --load /tmp/quicklisp.lisp \
+         --eval "(quicklisp-quickstart:install :dist-url \"${QUICKLISP_URL}\")" 
+RUN sbcl --noinform --non-interactive --load ~/quicklisp/setup.lisp \
+          --eval '(ql-util:without-prompting (ql:add-to-init-file))' 
+RUN echo '#+quicklisp(push (truename "/usr/src") ql:*local-project-directories*)' >> ~/.sbclrc 
+RUN rm -f /tmp/quicklisp.lisp
 
 # Get the latest versions of QVM and Magicl
 RUN git clone https://github.com/quil-lang/qvm.git
